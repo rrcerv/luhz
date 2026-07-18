@@ -1,0 +1,21 @@
+.toggle {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 10;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  border: 1.5px solid var(--color-text-muted);
+  border-radius: 999px;
+  transition:
+    color var(--theme-transition),
+    border-color var(--theme-transition);
+}
+
+.toggle:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}

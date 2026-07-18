@@ -1,0 +1,51 @@
+/* ---------------------------------------------------------------------------
+   Luhz — Tecnologia Criativa · Design tokens
+   Brand palette + semantic tokens. Layout code must only consume the
+   semantic tokens (--color-*); brand tokens are the single source of hues.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Brand palette */
+  --brand-amber-300: #ffd98e;
+  --brand-amber-400: #ffc24d;
+  --brand-amber-500: #f2a71b;
+  --brand-amber-600: #d18a00;
+  --brand-violet-400: #8f7dff;
+  --brand-violet-500: #6c5ce7;
+  --brand-ink-900: #0d0c11;
+  --brand-ink-700: #1a1822;
+  --brand-ink-500: #3a3646;
+  --brand-paper-100: #faf6ec;
+  --brand-paper-200: #f1ead9;
+  --brand-chalk: #f4f1e8;
+
+  /* Typography */
+  --font-sans: 'Sora', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Motion */
+  --theme-transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Semantic tokens — dark ("lights off") is the default */
+  --color-bg: var(--brand-ink-900);
+  --color-bg-elevated: var(--brand-ink-700);
+  --color-text: var(--brand-chalk);
+  --color-text-muted: #a49fb4;
+  --color-line: var(--brand-chalk);
+  --color-accent: var(--brand-amber-400);
+  --color-accent-soft: rgba(255, 194, 77, 0.16);
+  --color-accent-2: var(--brand-violet-400);
+  --color-glow: rgba(255, 194, 77, 0.28);
+}
+
+:root[data-theme='light'] {
+  --color-bg: var(--brand-paper-100);
+  --color-bg-elevated: var(--brand-paper-200);
+  --color-text: var(--brand-ink-900);
+  --color-text-muted: #6a6377;
+  --color-line: var(--brand-ink-900);
+  --color-accent: var(--brand-amber-600);
+  --color-accent-soft: rgba(242, 167, 27, 0.2);
+  --color-accent-2: var(--brand-violet-500);
+  --color-glow: rgba(255, 194, 77, 0.5);
+}
