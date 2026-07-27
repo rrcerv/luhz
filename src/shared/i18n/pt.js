@@ -12,10 +12,10 @@ export default {
     lampAlt: 'Desenho à mão de uma lâmpada pendente',
   },
   about: {
-    titleText: 'Experiências que',
-    titleAccent: 'acendem memórias',
+    titleText: 'Experiências para',
+    titleAccent: 'criar memórias',
     intro:
-      'A Luhz é um laboratório de tecnologia criativa. Conectamos hardware e software para transformar espaços, marcas e ideias em experiências memoráveis — do sensor à nuvem.',
+      'A Luhz é um laboratório de tecnologia criativa. Conectamos hardware e software para transformar espaços, marcas e ideias em experiências memoráveis.',
     pillars: [
       {
         title: 'Experiências interativas',
@@ -25,17 +25,17 @@ export default {
       {
         title: 'Live marketing',
         description:
-          'Ativações para marcas com lidar, lasers, sensores de toque e captura de vídeo — tecnologia que vira lembrança.',
+          'Ativações para marcas com sensores, interatividade, vídeo, áudio — tecnologia que vira lembrança.',
       },
       {
         title: 'Plataformas & software',
         description:
-          'Eventos, RSVP, votações de alta demanda, automação de assets e machine learning — com nuvem, escalabilidade e CI/CD de ponta a ponta.',
+          'Desenvolvemos plataformas, softwares e automações pensados sob medida para o seu negócio. Capacidade de lidar com alta volumetria, utilizando recursos de ponta'
       },
       {
         title: 'Robótica & automação',
         description:
-          'Eletrônica, movimento e integração físico-digital para dar vida e comportamento ao mundo real.',
+          'Eletrônica, movimento e integração físico-digital para trazer significado à tecnologia no mundo real.',
       },
     ],
     brandsTitle: 'No caminho dos nossos membros',

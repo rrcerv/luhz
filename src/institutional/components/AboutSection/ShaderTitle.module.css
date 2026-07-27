@@ -1,0 +1,51 @@
+.title {
+  position: relative;
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  font-weight: 700; /* affects the fallback only */
+}
+
+.canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Present for accessibility/SEO; visually hidden while the canvas renders */
+.fallback {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.noGL .canvas {
+  display: none;
+}
+
+.noGL .fallback {
+  position: static;
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  text-align: center;
+  font-size: clamp(1.9rem, 5.2vw, 3.1rem);
+  line-height: 1.15;
+  color: var(--color-text);
+  transition: color var(--theme-transition);
+}
+
+.fallbackAccent {
+  color: var(--color-accent);
+  transition: color var(--theme-transition);
+}

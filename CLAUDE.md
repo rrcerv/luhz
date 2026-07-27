@@ -121,12 +121,19 @@ src/
 
 ## WebGL
 
-- The interactive brand wordmark (ContactSection `LuhzText`) is raw WebGL — no
-  three.js. The word is rasterized to a 2D canvas as a white alpha-mask texture,
-  then tinted and displaced (liquid push + wobble + chromatic split toward the
-  cursor) in a fragment shader. Theme colors are read from CSS vars through a
-  probe element and updated on `data-theme` changes; it respects reduced motion
-  (static render) and pauses via IntersectionObserver when off screen.
+- Interactive type is raw WebGL — no three.js. The text is rasterized to a 2D
+  canvas texture, then tinted/animated in a fragment shader. Shared conventions:
+  theme colors resolved from CSS vars via a probe element and refreshed on
+  `data-theme` changes; texture rebuilt on width change (ResizeObserver);
+  reduced motion renders one static frame; the render loop pauses via
+  IntersectionObserver when off screen; the accessible text lives in a
+  visually-hidden/fallback element (also shown if WebGL is unavailable).
+- Each usage gets a **distinct** effect (avoid repetition):
+  - ContactSection `LuhzText` — white alpha mask, liquid push + wobble +
+    chromatic split toward the cursor; idle = a slow phantom cursor drifts.
+  - AboutSection `ShaderTitle` — two-tone texture (body + amber accent), an
+    ember glow with a travelling warm light band + flicker + a slow undulation
+    wave. Ambient only (no pointer interaction).
 
 ## Contact form & integrations
 

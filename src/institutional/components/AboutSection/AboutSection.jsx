@@ -5,6 +5,7 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../../shared/i18n/LanguageContext';
 import { SensorIcon, SparkIcon, PlatformIcon, RobotIcon } from './AboutIcons';
+import ShaderTitle from './ShaderTitle';
 import styles from './AboutSection.module.css';
 
 gsap.registerPlugin(useGSAP, DrawSVGPlugin, ScrollTrigger);
@@ -21,7 +22,7 @@ export default function AboutSection() {
         return;
       }
 
-      // Heading: fade up, then sketch the underline beneath the accent word
+      // Heading (interactive shader title) fades up, then the intro follows
       gsap
         .timeline({
           scrollTrigger: { trigger: '[data-about-heading]', start: 'top 78%' },
@@ -30,12 +31,6 @@ export default function AboutSection() {
           '[data-about-heading]',
           { autoAlpha: 0, y: 26 },
           { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' }
-        )
-        .fromTo(
-          '[data-underline]',
-          { drawSVG: '0%' },
-          { drawSVG: '100%', duration: 0.55, ease: 'power1.inOut' },
-          '-=0.15'
         )
         .fromTo(
           '[data-about-intro]',
@@ -85,20 +80,9 @@ export default function AboutSection() {
   return (
     <section ref={sectionRef} className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title} data-about-heading>
-          {t.about.titleText}{' '}
-          <span className={styles.titleAccent}>
-            {t.about.titleAccent}
-            <svg
-              className={styles.underline}
-              viewBox="0 0 220 20"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path data-underline d="M4 13 C 70 6.5, 150 7, 216 11" />
-            </svg>
-          </span>
-        </h2>
+        <div className={styles.titleShader} data-about-heading>
+          <ShaderTitle text={t.about.titleText} accent={t.about.titleAccent} />
+        </div>
 
         <p className={styles.intro} data-about-intro>
           {t.about.intro}
