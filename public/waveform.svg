@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 120" preserveAspectRatio="none">
+  <path
+    d="M0 60 Q15 18 30 60 Q45 102 60 60 Q75 30 90 60 Q105 96 120 60 Q135 12 150 60 Q165 90 180 60 Q195 36 210 60 Q225 102 240 60"
+    fill="none"
+    stroke="#ffe1a3"
+    stroke-width="9"
+    stroke-linecap="round"
+  />
+</svg>

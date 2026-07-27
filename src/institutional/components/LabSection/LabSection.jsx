@@ -7,6 +7,10 @@ import { useLanguage } from '../../../shared/i18n/LanguageContext';
 import RotaryPhone from './RotaryPhone';
 import MusicalPlant from './MusicalPlant';
 import LoopMachine from './LoopMachine';
+// Two title treatments to compare — swap the <WaveTitle/> below for <WaveformTitle/>.
+import WaveTitle from './WaveTitle';
+// eslint-disable-next-line no-unused-vars
+import WaveformTitle from './WaveformTitle';
 import * as engine from './audioEngine';
 import styles from './LabSection.module.css';
 
@@ -37,12 +41,6 @@ export default function LabSection() {
           '[data-lab-heading]',
           { autoAlpha: 0, y: 26 },
           { autoAlpha: 1, y: 0, duration: 0.6, ease: 'power2.out' }
-        )
-        .fromTo(
-          '[data-lab-underline]',
-          { drawSVG: '0%' },
-          { drawSVG: '100%', duration: 0.55, ease: 'power1.inOut' },
-          '-=0.15'
         )
         .fromTo(
           ['[data-lab-intro]', '[data-lab-mute]'],
@@ -102,20 +100,9 @@ export default function LabSection() {
   return (
     <section ref={sectionRef} className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title} data-lab-heading>
-          {t.lab.titleText}{' '}
-          <span className={styles.titleAccent}>
-            {t.lab.titleAccent}
-            <svg
-              className={styles.underline}
-              viewBox="0 0 220 20"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path data-lab-underline d="M4 13 C 70 6.5, 150 7, 216 11" />
-            </svg>
-          </span>
-        </h2>
+        <div className={styles.titleWrap} data-lab-heading>
+          <WaveformTitle text={t.lab.titleText} accent={t.lab.titleAccent} />
+        </div>
 
         <p className={styles.intro} data-lab-intro>
           {t.lab.intro}

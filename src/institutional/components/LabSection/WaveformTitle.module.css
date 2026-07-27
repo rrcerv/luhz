@@ -1,0 +1,41 @@
+.title {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  text-align: center;
+  font-size: clamp(1.9rem, 5.2vw, 3.1rem);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: 0.01em;
+}
+
+.body {
+  color: var(--color-text);
+  transition: color var(--theme-transition);
+}
+
+/* Fallback: solid accent fill where background-clip:text is unsupported */
+.wave {
+  color: var(--color-accent);
+  transition: color var(--theme-transition);
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .wave {
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-color: var(--color-accent);
+    background-image: url('/waveform.svg');
+    background-repeat: repeat-x;
+    background-position: 0 50%;
+    background-size: 200px 120%;
+    animation: waveScroll 7s linear infinite;
+  }
+}
+
+@keyframes waveScroll {
+  to {
+    background-position: -200px 50%;
+  }
+}

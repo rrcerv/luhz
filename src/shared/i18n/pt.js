@@ -54,7 +54,7 @@ export default {
     ],
   },
   showcase: {
-    titleText: 'Experiências em',
+    titleText: 'Em',
     titleAccent: 'movimento',
     intro:
       'Um panorama em vídeo de experiências que integrantes da Luhz ajudaram a criar. Em breve, cenas reais de cada projeto — por enquanto, uma prévia.',
