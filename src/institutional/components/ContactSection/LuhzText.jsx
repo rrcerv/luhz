@@ -4,6 +4,9 @@ import styles from './LuhzText.module.css';
 
 const WORD = 'Luhz';
 
+// How much liquid motion plays while on screen but not hovered (0..1).
+const IDLE_LEVEL = 0.35;
+
 const VERTEX_SRC = `
   attribute vec2 aPos;
   varying vec2 vUv;
@@ -182,13 +185,14 @@ export default function LuhzText() {
     const target = [0.5, 0.55];
     let hover = 0;
     let hoverTarget = 0;
+    let strength = 0;
     let time = 0;
     let last = performance.now();
     let raf = 0;
 
     function render() {
       gl.uniform2f(U.mouse, mouse[0], mouse[1]);
-      gl.uniform1f(U.hover, hover);
+      gl.uniform1f(U.hover, strength);
       gl.uniform1f(U.time, time);
       gl.uniform3f(U.color, color[0], color[1], color[2]);
       gl.uniform3f(U.accent, accent[0], accent[1], accent[2]);
@@ -201,9 +205,18 @@ export default function LuhzText() {
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
       time += dt;
+
+      // Not hovering: a slow phantom cursor drifts across the word to show
+      // it is interactive. A real pointer (hoverTarget = 1) takes over.
+      if (hoverTarget === 0) {
+        target[0] = 0.5 + 0.3 * Math.sin(time * 0.55);
+        target[1] = 0.52 + 0.14 * Math.sin(time * 0.83 + 1.3);
+      }
+
       mouse[0] += (target[0] - mouse[0]) * Math.min(1, dt * 8);
       mouse[1] += (target[1] - mouse[1]) * Math.min(1, dt * 8);
       hover += (hoverTarget - hover) * Math.min(1, dt * 6);
+      strength = hover + (1 - hover) * IDLE_LEVEL;
       render();
       raf = requestAnimationFrame(frame);
     }
