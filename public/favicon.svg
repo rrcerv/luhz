@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="52%" r="52%">
+      <stop offset="0%" stop-color="#ffd98e" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#ffc24d" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffc24d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="32" height="32" rx="7" fill="#0d0c11"/>
+  <circle cx="16" cy="16.5" r="12" fill="url(#g)"/>
+
+  <g fill="none" stroke="#ffc24d" stroke-width="1.7"
+     stroke-linecap="round" stroke-linejoin="round">
+    <!-- Glass bulb -->
+    <path d="M12.5 12 C 8.5 13.5, 7.6 19, 11 22 C 14 24.4, 18 24.4, 21 22 C 24.4 19, 23.5 13.5, 19.5 12"/>
+
+    <!-- Screw cap -->
+    <path d="M12.5 12 L12.5 8.6"/>
+    <path d="M19.5 12 L19.5 8.6"/>
+    <path d="M12.5 8.6 C 15 7.6, 17 7.6, 19.5 8.6"/>
+    <path d="M12.9 10.2 L19.1 10.2"/>
+
+    <!-- Filament -->
+    <path d="M13.6 16.4 C 15 20, 17 20, 18.4 16.4" stroke="#ffd98e" stroke-width="1.5"/>
+  </g>
+</svg>

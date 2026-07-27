@@ -107,6 +107,36 @@ src/
 - Always respect `prefers-reduced-motion`: skip/instant-set animations when the
   media query matches.
 
+## Sound
+
+- All sound is synthesized in-browser with the Web Audio API — no audio asset
+  files. The engine lives in
+  `src/institutional/components/LabSection/audioEngine.js` (one shared
+  AudioContext, master gain, mute, one-shot voices + a lookahead sequencer).
+- Sound only ever plays as a direct result of user interaction, and the
+  AudioContext is created/resumed via `engine.unlock()` inside interaction
+  handlers (browser autoplay policy). Hover-triggered sounds may be silent
+  until the first click/tap — that is expected.
+- Any section with sound must offer a mute toggle (translated labels).
+
+## WebGL
+
+- The interactive brand wordmark (ContactSection `LuhzText`) is raw WebGL — no
+  three.js. The word is rasterized to a 2D canvas as a white alpha-mask texture,
+  then tinted and displaced (liquid push + wobble + chromatic split toward the
+  cursor) in a fragment shader. Theme colors are read from CSS vars through a
+  probe element and updated on `data-theme` changes; it respects reduced motion
+  (static render) and pauses via IntersectionObserver when off screen.
+
+## Contact form & integrations
+
+- The contact form uses **Cloudflare Turnstile**. Set `VITE_TURNSTILE_SITE_KEY`
+  in a `.env`; it falls back to Cloudflare's always-pass TEST key in dev. The
+  matching SECRET key must verify the token server-side.
+- The form POSTs JSON `{ name, email, company, message, turnstileToken }` to
+  `VITE_CONTACT_ENDPOINT`. While that is unset it simulates a successful send and
+  logs the payload (dev only).
+
 ## Design language
 
 - Concept: "Luhz" ≈ "luz" (light). Hand-drawn sketch aesthetic (wobbly SVG

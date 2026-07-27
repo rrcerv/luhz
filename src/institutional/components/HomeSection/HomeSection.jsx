@@ -15,6 +15,7 @@ const prefersReducedMotion = () =>
 export default function HomeSection() {
   const { t } = useLanguage();
   const sectionRef = useRef(null);
+  const knobBobRef = useRef(null);
   const [isOn, setIsOn] = useState(false);
   const [hasToggled, setHasToggled] = useState(false);
 
@@ -36,7 +37,7 @@ export default function HomeSection() {
         return;
       }
 
-      gsap
+      const introTl = gsap
         .timeline({ defaults: { ease: 'power1.inOut' }, delay: 0.35 })
         .to('[data-draw="cord"]', { drawSVG: '100%', duration: 0.6 })
         .to(
@@ -72,6 +73,16 @@ export default function HomeSection() {
           { autoAlpha: 1, y: 0, duration: 0.5, ease: 'power2.out' },
           '-=0.15'
         );
+
+      // Once the switch is present, invite the press: the knob bobs in its slot
+      knobBobRef.current = gsap.to('[data-switch-knob]', {
+        y: 6,
+        duration: 1,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: introTl.delay() + introTl.duration(),
+      });
     },
     { scope: sectionRef }
   );
@@ -80,6 +91,7 @@ export default function HomeSection() {
     const next = !isOn;
     setIsOn(next);
     setHasToggled(true);
+    knobBobRef.current?.kill();
 
     const root = document.documentElement;
 
@@ -172,12 +184,14 @@ export default function HomeSection() {
           {t.hero.catchphrase}
         </p>
 
-        <LightSwitch
-          isOn={isOn}
-          onToggle={handleToggle}
-          label={isOn ? t.hero.switchTurnOff : t.hero.switchTurnOn}
-          showHint={!hasToggled}
-        />
+        <div className={styles.switchArea}>
+          <LightSwitch
+            isOn={isOn}
+            onToggle={handleToggle}
+            label={isOn ? t.hero.switchTurnOff : t.hero.switchTurnOn}
+            showHint={!hasToggled}
+          />
+        </div>
       </div>
     </section>
   );

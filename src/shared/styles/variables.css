@@ -22,6 +22,7 @@
   /* Typography */
   --font-sans: 'Sora', system-ui, -apple-system, sans-serif;
   --font-hand: 'Caveat', cursive;
+  --font-display: 'Archivo Black', 'Sora', system-ui, sans-serif;
 
   /* Motion */
   --theme-transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
@@ -36,6 +37,10 @@
   --color-accent-soft: rgba(255, 194, 77, 0.16);
   --color-accent-2: var(--brand-violet-400);
   --color-glow: rgba(255, 194, 77, 0.28);
+
+  /* Text that sits on top of an accent-filled surface (buttons). Kept dark in
+     both themes for guaranteed contrast against amber. */
+  --color-on-accent: var(--brand-ink-900);
 }
 
 :root[data-theme='light'] {

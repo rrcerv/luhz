@@ -1,0 +1,35 @@
+.plant {
+  display: block;
+  width: min(230px, 62vw);
+  height: auto;
+}
+
+.plant [data-draw] {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke var(--theme-transition);
+}
+
+.leaf {
+  fill: var(--color-accent-soft);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    stroke var(--theme-transition),
+    fill var(--theme-transition);
+}
+
+.leaf:hover {
+  stroke: var(--color-accent);
+}
+
+.note {
+  font-size: 17px;
+  fill: var(--color-accent);
+  opacity: 0;
+  pointer-events: none;
+  transition: fill var(--theme-transition);
+}

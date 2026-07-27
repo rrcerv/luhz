@@ -113,8 +113,14 @@
   transition: color var(--theme-transition);
 }
 
-.switch {
+.switchArea {
+  position: relative;
   margin-top: 2.2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.switch {
   width: clamp(56px, 8vw, 70px);
   padding: 0;
   line-height: 0;
@@ -156,16 +162,17 @@
 }
 
 .switchHint {
-  animation: switchPulse 2.2s ease-in-out infinite;
+  animation: switchPulse 2s ease-in-out infinite;
 }
 
 @keyframes switchPulse {
   0%,
   100% {
-    filter: drop-shadow(0 0 0 rgba(255, 194, 77, 0));
+    filter: drop-shadow(0 0 2px rgba(255, 194, 77, 0.12));
   }
   50% {
-    filter: drop-shadow(0 0 14px var(--color-glow));
+    filter: drop-shadow(0 0 22px var(--color-glow))
+      drop-shadow(0 0 6px var(--color-glow));
   }
 }
 
@@ -182,7 +189,7 @@
     margin-top: 1.4rem;
   }
 
-  .switch {
+  .switchArea {
     margin-top: 1.8rem;
   }
 }
