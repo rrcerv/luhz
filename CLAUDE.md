@@ -140,7 +140,13 @@ src/
     divergence-free velocity field, and particles bilinearly sample it and wrap
     at the edges. Produces ink-in-water filaments and eddies that form and
     dissolve without collapsing. Physics runs on the CPU; positions upload to a
-    dynamic buffer each frame.
+    dynamic buffer each frame. Particles paint a fading **feedback trail** via
+    ping-pong framebuffers (fade the previous frame → stamp particles additively
+    → composite). The buffer accumulates colorless "ink" and the theme color is
+    applied at composite time, so a theme flip recolors the existing trail.
+    Elements marked `data-repel` inside the section push particles away so the
+    copy stays legible; their rects are measured from the live DOM (and
+    re-measured on reflow), so it adapts to every breakpoint automatically.
     Kept subtle so the phone/video stays the focus. Particle color is the
     theme-aware `--color-particle` token (bright amber on dark, deeper amber on
     light) so it stays visible in both themes.

@@ -70,7 +70,7 @@ export default function ShowcaseSection() {
       <ShowcaseBackground />
       <div className={styles.container}>
         <div className={styles.copy} data-showcase-copy>
-          <h2 className={styles.title} data-showcase-heading>
+          <h2 className={styles.title} data-showcase-heading data-repel>
             {t.showcase.titleText}{' '}
             <span className={styles.titleAccent}>
               {t.showcase.titleAccent}
@@ -84,7 +84,7 @@ export default function ShowcaseSection() {
               </svg>
             </span>
           </h2>
-          <p className={styles.intro} data-showcase-intro>
+          <p className={styles.intro} data-showcase-intro data-repel>
             {t.showcase.intro}
           </p>
         </div>
