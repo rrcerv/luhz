@@ -5,6 +5,7 @@ import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useLanguage } from '../../../shared/i18n/LanguageContext';
 import PhoneMockup from './PhoneMockup';
+import ShowcaseBackground from './ShowcaseBackground';
 import styles from './ShowcaseSection.module.css';
 
 gsap.registerPlugin(useGSAP, DrawSVGPlugin, ScrollTrigger);
@@ -66,6 +67,7 @@ export default function ShowcaseSection() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
+      <ShowcaseBackground />
       <div className={styles.container}>
         <div className={styles.copy} data-showcase-copy>
           <h2 className={styles.title} data-showcase-heading>
@@ -88,7 +90,7 @@ export default function ShowcaseSection() {
         </div>
 
         <div className={styles.stage}>
-          <PhoneMockup videoSrc='/videos/video_luhz.mp4' />
+          <PhoneMockup videoSrc='https://pub-827b2cfd3c5b4abd9c0c13b273209fec.r2.dev/video_site_luhz.mp4' />
         </div>
       </div>
     </section>

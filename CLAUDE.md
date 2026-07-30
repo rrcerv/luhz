@@ -134,6 +134,16 @@ src/
   - AboutSection `ShaderTitle` — two-tone texture (body + amber accent), an
     ember glow with a travelling warm light band + flicker + a slow undulation
     wave. Ambient only (no pointer interaction).
+  - ShowcaseSection `ShowcaseBackground` — a `gl.POINTS` particle field behind
+    the content, advected by a **curl-noise flow field**: an evolving 3D
+    value-noise potential is sampled on a grid, its curl gives a
+    divergence-free velocity field, and particles bilinearly sample it and wrap
+    at the edges. Produces ink-in-water filaments and eddies that form and
+    dissolve without collapsing. Physics runs on the CPU; positions upload to a
+    dynamic buffer each frame.
+    Kept subtle so the phone/video stays the focus. Particle color is the
+    theme-aware `--color-particle` token (bright amber on dark, deeper amber on
+    light) so it stays visible in both themes.
 
 ## Contact form & integrations
 

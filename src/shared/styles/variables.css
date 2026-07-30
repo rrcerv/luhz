@@ -37,6 +37,7 @@
   --color-accent-soft: rgba(255, 194, 77, 0.16);
   --color-accent-2: var(--brand-violet-400);
   --color-glow: rgba(255, 194, 77, 0.28);
+  --color-particle: var(--brand-amber-300);
 
   /* Text that sits on top of an accent-filled surface (buttons). Kept dark in
      both themes for guaranteed contrast against amber. */
@@ -53,4 +54,5 @@
   --color-accent-soft: rgba(242, 167, 27, 0.2);
   --color-accent-2: var(--brand-violet-500);
   --color-glow: rgba(255, 194, 77, 0.5);
+  --color-particle: var(--brand-amber-300);
 }
